@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anas Chat</title>
+<style>
+body{font-family:sans-serif;background:#0f172a;color:white;margin:0;display:flex;justify-content:center;align-items:center;height:100vh}
+.box{background:#1e293b;width:90%;max-width:400px;height:600px;border-radius:20px;display:flex;flex-direction:column;overflow:hidden}
+.header{background:#2563eb;padding:15px;text-align:center;font-weight:bold;font-size:20px}
+#msgs{flex:1;padding:15px;overflow-y:auto;display:flex;flex-direction:column;gap:10px}
+.msg{background:#334155;padding:10px 14px;border-radius:15px;max-width:80%}
+.msg.me{background:#2563eb;align-self:flex-end}
+.input{display:flex;padding:10px;gap:8px;background:#0f172a}
+input{flex:1;padding:12px;border-radius:20px;border:none;outline:none}
+button{background:#2563eb;color:white;border:none;padding:12px 18px;border-radius:20px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="box">
+<div class="header">💬 Anas Chat</div>
+<div id="msgs"><div class="msg">أهلا فيك في Anas Chat 👋</div></div>
+<div class="input">
+<input id="text" placeholder="اكتب رسالتك...">
+<button onclick="send()">إرسال</button>
+</div>
+</div>
+<script>
+function send(){
+let t=document.getElementById('text');
+if(!t.value) return;
+let d=document.createElement('div');
+d.className='msg me'; d.textContent=t.value;
+document.getElementById('msgs').appendChild(d);
+t.value='';
+}
+</script>
+</body>
+</html>
